@@ -1,0 +1,16 @@
+{
+  "name": "yolo-test",
+  "version": "1.0.0",
+  "description": "Node.js flood test script with keep-alive server",
+  "main": "YOLO.js",
+  "scripts": {
+    "start": "node YOLO.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2",
+    "gradient-string": "^2.0.2",
+    "random-useragent": "^0.5.0"
+  }
+}
