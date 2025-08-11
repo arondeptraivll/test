@@ -9,19 +9,6 @@ const net = require("net");
  const cheerio = require('cheerio'); 
  const gradient = require("gradient-string")
  const randomUseragent = require('random-useragent');
- const express = require('express');
-const app = express();
-
-// Endpoint cơ bản để Render biết server "đang sống"
-app.get('/ping', (req, res) => {
-  res.json({ status: 'alive', time: new Date().toISOString() });
-});
-
-// Port phải đọc từ env trong Render
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Keep-alive server chạy trên port ${PORT}`);
-});
 
  process.setMaxListeners(0);
  require("events").EventEmitter.defaultMaxListeners = 0;
@@ -536,10 +523,6 @@ app.listen(PORT, () => {
      }),function (error, response, body) {
 		};
  }
-console.log(gradient.vice(`[!] SUCCESSFULLY SENT ATTACK.`));
-
-const KillScript = () => {
-  console.log('✅ Test đã kết thúc. Server /ping vẫn chạy để giữ app sống.');
-};
-
-setTimeout(KillScript, args.time * 1000);
+ console.log(gradient.vice(`[!] SUCCESSFULLY SENT ATTACK.`));
+ const KillScript = () => process.exit(1);
+ setTimeout(KillScript, args.time * 1000);
